@@ -14,7 +14,7 @@ class TodoItem extends Component {
   render = () => {
     return (
       <div style={this.getStyle()}>
-        <Typography variant='h4' color='inherit'>
+        <Typography variant='h6' color='inherit'>
           <Checkbox
             value='primary'
             color='primary'

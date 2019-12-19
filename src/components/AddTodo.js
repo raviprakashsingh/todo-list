@@ -30,8 +30,8 @@ class AddTodo extends Component {
       <div>
         <form onSubmit={this.submit}>
           <TextField
-            error
             required={true}
+            fullWidth={true}
             label='AddTodo'
             value={this.state.title}
             onChange={this.fieldChange}

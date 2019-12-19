@@ -8,26 +8,11 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import uuid from 'uuid';
 
 class App extends React.Component {
   state = {
-    todos: [
-      {
-        id: 1,
-        title: 'todo list app',
-        completed: false
-      },
-      {
-        id: 2,
-        title: 'Udemy React course',
-        completed: false
-      },
-      {
-        id: 3,
-        title: 'Faculties Update',
-        completed: false
-      }
-    ]
+    todos: []
   };
 
   completeTodo = id => {
@@ -48,7 +33,7 @@ class App extends React.Component {
   };
 
   addTodo = title => {
-    const todo = { id: 7, title: title, completed: false };
+    const todo = { id: uuid.v4(), title: title, completed: false };
     this.setState({ todos: [...this.state.todos, todo] });
   };
 
@@ -67,6 +52,11 @@ class App extends React.Component {
         </AppBar>
 
         <AddTodo addTodo={this.addTodo} />
+        {this.state.todos.length > 0 ? (
+          <Typography variant='h4' style={{ color: '#002984' }}>
+            Your Todo are here.
+          </Typography>
+        ) : null}
 
         <Todos
           todos={this.state.todos}
