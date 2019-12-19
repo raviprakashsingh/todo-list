@@ -8,7 +8,7 @@ class AddTodo extends Component {
 
   fieldChange = e => {
     this.setState({
-      title: e.target.value
+      title: e.target.value.trim()
     });
   };
 
@@ -27,6 +27,8 @@ class AddTodo extends Component {
       <div>
         <form onSubmit={this.submit}>
           <TextField
+            error
+            required={true}
             label='AddTodo'
             value={this.state.title}
             onChange={this.fieldChange}
