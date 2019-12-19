@@ -7,8 +7,11 @@ class AddTodo extends Component {
   };
 
   fieldChange = e => {
+    if (e.target.value.trim() === '') {
+      e.target.value = '';
+    }
     this.setState({
-      title: e.target.value.trim()
+      title: e.target.value
     });
   };
 
